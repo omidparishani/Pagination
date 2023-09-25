@@ -14,10 +14,16 @@
   </ul>
 </nav>
 <div>
-  <h2>{{images[curentPage].title+(curentPage +1)}}</h2>
+  <h2 appClass>{{images[curentPage].title+(curentPage +1)}}</h2>
   <img [src]="images[curentPage].url" alt="" style="max-height: 200px; max-height: 200px;">
 </div>
-<div [ngSwitch]=""></div>
+<div [ngSwitch]="curentPage">
+  <div *ngSwitchCase="0">This page is one</div>
+  <div *ngSwitchCase="1">This page is tow</div>
+  <div *ngSwitchDefault>
+    This page is other pages
+  </div>
+</div>
 <p *ngIf="isExists; else custom">this is if</p>
 <ng-template #custom>
   <p>this is else</p>
