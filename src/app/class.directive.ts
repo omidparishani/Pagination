@@ -1,12 +1,17 @@
-import { Directive, ElementRef } from '@angular/core';
+import { Directive, HostListener, HostBinding } from '@angular/core';
 
 @Directive({
   selector: '[appClass]'
 })
 export class ClassDirective {
 
-  constructor(private elementRef: ElementRef) {
-    this.elementRef.nativeElement.style.backgroundColor = 'blue';
+  @HostBinding('style.backgroundColor') backgroundColor: string = 'transparent';
+
+  @HostListener('mouseenter') onMouseOver() {
+    this.backgroundColor = 'red';
   }
 
+  @HostListener('mouseleave') onMouseLeave() {
+    this.backgroundColor = 'transparent';
+  }
 }
