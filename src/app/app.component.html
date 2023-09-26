@@ -14,7 +14,7 @@
   </ul>
 </nav>
 <div>
-  <h2 appClass>{{images[curentPage].title+(curentPage +1)}}</h2>
+  <h2 appClass [color]="'yellow'">{{images[curentPage].title+(curentPage +1)}}</h2>
   <img [src]="images[curentPage].url" alt="" style="max-height: 200px; max-height: 200px;">
 </div>
 <div [ngSwitch]="curentPage">
